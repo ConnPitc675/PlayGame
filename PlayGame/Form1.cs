@@ -77,11 +77,14 @@ namespace PlayGame
             Controls.Clear();
             BackColor = Color.Black;
 
-            Pen Borderline = new Pen(Color.Blue);
+            Graphics Lines = this.CreateGraphics();
+            Graphics Dot = this.CreateGraphics();
+            Pen BorderLine = new Pen(Color.Blue);
             SolidBrush PacMan = new SolidBrush(Color.Yellow);
 
-            formGraphics.DrawLine(Borderline, 5, 20, 100, 100);
-            
+            Lines.DrawLine(BorderLine, 0, 0, 100, 100);
+
+
         }
     }
 }
