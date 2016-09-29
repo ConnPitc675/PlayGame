@@ -20,17 +20,12 @@ namespace PlayGame
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void ClickToPlay_Click(object sender, EventArgs e)
         {
             SoundPlayer beep1 = new SoundPlayer(Properties.Resources.beep_01a); //sets sound files to be used
             SoundPlayer beep2 = new SoundPlayer(Properties.Resources.LastBeep);
+            SoundPlayer pacman = new SoundPlayer(Properties.Resources.pacmanSound);
             Graphics formGraphics = this.CreateGraphics();
-            Graphics fg = this.CreateGraphics();
             Font CFont = new Font("Lucida Console", 80, FontStyle.Bold);
             Font RamFont = new Font("Lucida Console", 40, FontStyle.Bold);
             SolidBrush Redbrush = new SolidBrush(Color.Red);
@@ -65,25 +60,89 @@ namespace PlayGame
             GameWillStart.BackColor = Color.Green;
             beep1.Play(); //play beep1 file as set earlier
             formGraphics.FillEllipse(Redbrush, 65, 125, 200, 100); //create red ellipse
-            fg.DrawString("C", CFont, Whitebrush, 70, 125); //create white 'c' on ellipse
-            fg.DrawString("rams", RamFont, Whitebrush, 115, 150); //create white 'rams' on ellipse
-            fg.TranslateTransform(275, 140);
-            fg.RotateTransform(90);
-            fg.DrawString("Central Rams Arcade", drawFont, drawBrush, new Rectangle());
-            fg.ResetTransform();
+            formGraphics.DrawString("C", CFont, Whitebrush, 70, 125); //create white 'c' on ellipse
+            formGraphics.DrawString("rams", RamFont, Whitebrush, 115, 150); //create white 'rams' on ellipse
+            formGraphics.TranslateTransform(275, 140);
+            formGraphics.RotateTransform(90);
+            formGraphics.DrawString("Central Rams Arcade", drawFont, drawBrush, new Rectangle());
+            formGraphics.ResetTransform();
             ClickToPlay.BackColor = Color.Green;
 
             Thread.Sleep(1000);
             Controls.Clear();
-            BackColor = Color.Black;
-
-            Graphics Lines = this.CreateGraphics();
-            Graphics Dot = this.CreateGraphics();
-            Pen BorderLine = new Pen(Color.Blue);
+            
+            Pen BorderLine = new Pen(Color.Blue, 5);
             SolidBrush PacMan = new SolidBrush(Color.Yellow);
 
-            Lines.DrawLine(BorderLine, 0, 0, 100, 100);
+            formGraphics.Clear(Color.Black);
+            formGraphics.DrawLine(BorderLine, 50, 0, 50, 200);
+            formGraphics.DrawLine(BorderLine, 48, 200, 200, 200);
+            formGraphics.DrawLine(BorderLine, 100, 0, 100, 150);
+            formGraphics.DrawLine(BorderLine, 98, 150, 200, 150);
 
+            Thread.Sleep(1000);
+
+            formGraphics.FillEllipse(PacMan, 53, 3, 44, 44);
+
+            Thread.Sleep(1000);
+            formGraphics.Clear(Color.Black);
+            formGraphics.DrawLine(BorderLine, 50, 0, 50, 200);
+            formGraphics.DrawLine(BorderLine, 48, 200, 200, 200);
+            formGraphics.DrawLine(BorderLine, 100, 0, 100, 150);
+            formGraphics.DrawLine(BorderLine, 98, 150, 200, 150);
+            formGraphics.FillPie(PacMan, 53, 53, 44, 44, 120, 300);
+            pacman.Play();
+
+            Thread.Sleep(1000);
+            formGraphics.Clear(Color.Black);
+            formGraphics.DrawLine(BorderLine, 50, 0, 50, 200);
+            formGraphics.DrawLine(BorderLine, 48, 200, 200, 200);
+            formGraphics.DrawLine(BorderLine, 100, 0, 100, 150);
+            formGraphics.DrawLine(BorderLine, 98, 150, 200, 150);
+            formGraphics.FillEllipse(PacMan, 53, 103, 44, 44);
+            pacman.Play();
+
+            Thread.Sleep(1000);
+            formGraphics.Clear(Color.Black);
+            formGraphics.DrawLine(BorderLine, 50, 0, 50, 200);
+            formGraphics.DrawLine(BorderLine, 48, 200, 200, 200);
+            formGraphics.DrawLine(BorderLine, 100, 0, 100, 150);
+            formGraphics.DrawLine(BorderLine, 98, 150, 200, 150);
+            formGraphics.FillPie(PacMan, 53, 153, 44, 44, 120, 300);
+            pacman.Play();
+
+            Thread.Sleep(1000);
+            formGraphics.Clear(Color.Black);
+            formGraphics.DrawLine(BorderLine, 50, 0, 50, 200);
+            formGraphics.DrawLine(BorderLine, 48, 200, 200, 200);
+            formGraphics.DrawLine(BorderLine, 100, 0, 100, 150);
+            formGraphics.DrawLine(BorderLine, 98, 150, 200, 150);
+            formGraphics.FillEllipse(PacMan, 103, 153, 44, 44);
+            pacman.Play();
+
+            Thread.Sleep(1000);
+            formGraphics.Clear(Color.Black);
+            formGraphics.DrawLine(BorderLine, 50, 0, 50, 200);
+            formGraphics.DrawLine(BorderLine, 48, 200, 200, 200);
+            formGraphics.DrawLine(BorderLine, 100, 0, 100, 150);
+            formGraphics.DrawLine(BorderLine, 98, 150, 200, 150);
+            formGraphics.FillPie(PacMan, 153, 153, 44, 44, 30, 290);
+            pacman.Play();
+
+            Thread.Sleep(1000);
+            formGraphics.Clear(Color.Black);
+            formGraphics.DrawLine(BorderLine, 50, 0, 50, 200);
+            formGraphics.DrawLine(BorderLine, 48, 200, 200, 200);
+            formGraphics.DrawLine(BorderLine, 100, 0, 100, 150);
+            formGraphics.DrawLine(BorderLine, 98, 150, 200, 150);
+            formGraphics.FillEllipse(PacMan, 203, 153, 44, 44);
+            pacman.Play();
+
+            Thread.Sleep(30);
+            Font congrats = new Font("Courier New", 16, FontStyle.Bold);
+            SolidBrush congratsBrush = new SolidBrush(Color.Yellow);
+            formGraphics.DrawString("congrats", congrats, congratsBrush, 200, 200);
+            
 
         }
     }

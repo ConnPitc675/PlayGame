@@ -86,5 +86,14 @@ namespace PlayGame.Properties {
                 return ResourceManager.GetStream("LastBeep", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream pacmanSound {
+            get {
+                return ResourceManager.GetStream("pacmanSound", resourceCulture);
+            }
+        }
     }
 }
